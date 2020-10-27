@@ -14,6 +14,10 @@ namespace Entities
             Value = value;
         }
 
+        /// <summary>
+        /// Counter of number of banknotes needed
+        /// </summary>
+        /// <returns>A string containing the number of banknotes needed</returns>
         public string FewerNotes()
         {
             StringBuilder sb = new StringBuilder();
@@ -23,9 +27,9 @@ namespace Entities
                 sb.Append("São necessarias ");
                 for (int i = 0; i < ValidNotes.Length; i++)
                 {
-                    if (Value%ValidNotes[i] == 0)
+                    if (Value % ValidNotes[i] == 0)
                     {
-                        sb.Append($"{Value/ValidNotes[i]} de {ValidNotes[i]}");
+                        sb.Append($"{Value / ValidNotes[i]} de {ValidNotes[i]}");
                         return sb.ToString();
                     }
                     else
@@ -45,8 +49,10 @@ namespace Entities
                 }
             }
             else
+            {
                 throw new NotesExceptions("Valor deve ser maior que 0!");
-            
+            }
+
             return sb.ToString();
         }
     }
